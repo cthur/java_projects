@@ -65,6 +65,12 @@ public class TestSuite implements Test {
 			return;
 		}
 
+		collectInheritedTests(theClass);
+		if (fTests.size() == 0)
+			addTest(warning("No tests found in "+theClass.getName()));
+	}
+
+	private void collectInheritedTests(final Class theClass) {
 		Class superClass= theClass;
 		Vector names= new Vector();
 		while (Test.class.isAssignableFrom(superClass)) {
@@ -74,8 +80,6 @@ public class TestSuite implements Test {
 			}
 			superClass= superClass.getSuperclass();
 		}
-		if (fTests.size() == 0)
-			addTest(warning("No tests found in "+theClass.getName()));
 	}
 	
    	/**
