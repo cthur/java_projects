@@ -1,4 +1,4 @@
-package test;
+package junit.samples;
 
 import java.util.Vector;
 
